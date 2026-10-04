@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: watch-together-postgres
+    environment:
+      POSTGRES_DB: watch_together
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - watch-together-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  watch-together-postgres-data:
